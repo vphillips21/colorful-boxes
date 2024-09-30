@@ -7,7 +7,7 @@
 * Add a new class to one of the boxes (e.g., 'highlight') and give it a border in the Styles pane.
 
 
-## In the Console panel:
+## In the script.js file:
 
 * Use document.getElementsByClassName('box') to get all the boxes. How many are there?
 * Create a new box using createBox() function and log it to the console.
