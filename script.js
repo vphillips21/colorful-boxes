@@ -1,34 +1,33 @@
-// Function to generate a random color
 function getRandomColor() {
-    // Define all possible hexadecimal digits
     const letters = '0123456789ABCDEF';
-    // Start with a '#' for hex color notation
     let color = '#';
-    // Generate six random digits
     for (let i = 0; i < 6; i++) {
-        // Randomly select a digit and add it to the color string
-        // Math.random() generates a number between 0 and 1
-        // Multiplying by 16 and using Math.floor gives us a random integer between 0 and 15
-        // This integer is used as an index to select a character from 'letters'
         color += letters[Math.floor(Math.random() * 16)];
     }
-    // Return the generated color
     return color;
 }
 
-// Function to create a new box
 function createBox() {
-    const box = document.createElement('div');
-    box.className = 'box';
-    box.style.backgroundColor = getRandomColor();
-    console.log(box.style.backgroundColor)
-    return box;
+    const newBox = document.createElement('div');
+    newBox.className = 'box';
+    const color = getRandomColor();
+    newBox.style.backgroundColor = color;
+    console.log(`Color of the new box: ${color}`);
+    return newBox;
 }
 
-// Get the container element
+// Select the container div
 const container = document.getElementById('container');
 
-// Add 5 boxes to the container
+// Create a new box and append it to the container
+const newBox = createBox();
+container.appendChild(newBox);
+
+// Log the number of boxes
+const boxes = document.getElementsByClassName('box');
+console.log("Number of boxes:", boxes.length);
+
 for (let i = 0; i < 5; i++) {
-    container.appendChild(createBox());
+    const newBox = createBox();
+    container.appendChild(newBox);
 }
